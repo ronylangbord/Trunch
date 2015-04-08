@@ -13,10 +13,7 @@
         android:layout_height="match_parent"
         android:visibility="gone"
         android:background="@drawable/background"
-
         />
-
-
 
     <TextView
         android:id="@+id/titleView"
