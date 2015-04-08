@@ -65,7 +65,8 @@ public class TrunchActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
-
+        super.onCreateOptionsMenu(menu);
+       // getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
 }

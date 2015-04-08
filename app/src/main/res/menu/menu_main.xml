@@ -5,9 +5,4 @@
         android:title="@string/action_settings"
         app:showAsAction="always"
         android:orderInCategory="100"/>
-
-    <item android:id="@+id/about_us_id"
-        android:title="About us"
-        app:showAsAction="always"
-        android:orderInCategory="100"/>
 </menu>
