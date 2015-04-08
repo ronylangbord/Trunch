@@ -29,7 +29,6 @@ public class TrunchActivity extends Activity {
     Typeface robotoFont;
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
