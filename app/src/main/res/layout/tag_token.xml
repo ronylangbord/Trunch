@@ -3,21 +3,24 @@
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
               android:orientation="horizontal"
-              android:background="@drawable/token_default"
->
+             >
+
     <TextView android:id="@+id/name"
-              android:layout_width="105dp"
+              android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:background="@drawable/mytag"
+              android:background="@drawable/token_default"
               android:textColor="@android:color/white"
               android:textSize="20sp"
               android:text="Test Me"
-              android:paddingLeft="5dp"
-              android:paddingRight="8dp"
+              android:paddingLeft="3dp"
+              android:paddingRight="3dp"
               android:paddingTop="2dp"
-              android:paddingBottom="4dp"
+              android:paddingBottom="4dp"/>
 
-
-        />
+    <!--<ImageView android:layout_width="match_parent"-->
+               <!--android:layout_height="match_parent"-->
+               <!--android:src="@drawable/x_button"-->
+               <!--android:background="@drawable/token_default"-->
+            <!--/>-->
 
 </LinearLayout>

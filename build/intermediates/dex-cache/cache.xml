@@ -2,53 +2,67 @@
 <items version="2" >
 
     <item
-        jar="/Users/ronylangbord/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-mapper-asl/1.9.13/1ee2f2bed0e5dd29d1cb155a166e6f8d50bbddb7/jackson-mapper-asl-1.9.13.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1ee2f2bed0e5dd29d1cb155a166e6f8d50bbddb7">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 3/app/build/intermediates/pre-dexed/debug/jackson-mapper-asl-1.9.13-c53344918700f23389c2978cfa2060361af86132.jar" />
-    </item>
-    <item
-        jar="/Users/ronylangbord/Desktop/TrunchMediaLab-master 3/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jar="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 3/app/build/intermediates/pre-dexed/debug/classes-c90cea9459f0987963a82f9fda9c5ac7e316cc50.jar" />
+        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/classes-8cb81c0b56b0582f8c553fdbdf683ef84af735f1.jar" />
     </item>
     <item
         jar="/Users/ronylangbord/Desktop/School/AndroidDevelopment/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 3/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-88088c993d53f330a72830eea1fa5cde05a4ffdc.jar" />
+        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-88088c993d53f330a72830eea1fa5cde05a4ffdc.jar" />
     </item>
     <item
-        jar="/Users/ronylangbord/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-core-asl/1.9.13/3c304d70f42f832e0a86d45bd437f692129299a4/jackson-core-asl-1.9.13.jar"
+        jar="/Users/ronylangbord/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.0.1/1d160beb3f8924d5b98d03d94a149021146f71cc/jackson-databind-2.0.1.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="3c304d70f42f832e0a86d45bd437f692129299a4">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 3/app/build/intermediates/pre-dexed/debug/jackson-core-asl-1.9.13-b4ae9935efad4534eaceb59614cef8799fcbee8d.jar" />
+        sha1="1d160beb3f8924d5b98d03d94a149021146f71cc">
+        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/jackson-databind-2.0.1-0a028205c720bf749c04962dbcdb2eee5f6abba7.jar" />
     </item>
     <item
-        jar="/Users/ronylangbord/Desktop/TrunchMediaLab-master 3/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jar="/Users/ronylangbord/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.0.1/481d14ec21e034ed45217c4854dbbf15940ce108/jackson-core-2.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="481d14ec21e034ed45217c4854dbbf15940ce108">
+        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/jackson-core-2.0.1-b1d363fc77e729aba72f45d9c77be3c288e7a795.jar" />
+    </item>
+    <item
+        jar="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 3/app/build/intermediates/pre-dexed/debug/classes-b6df1b54e176230a307532e8f1ba286f66793576.jar" />
+        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/classes-f140b73d45bba07400d82e2588593f74cb1bcc25.jar" />
     </item>
     <item
-        jar="/Users/ronylangbord/Desktop/TrunchMediaLab-master 3/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jar="/Users/ronylangbord/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.0.1/36e5996abe8655a6471b82af5ac1cd6786aecf85/jackson-annotations-2.0.1.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 3/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-adce63dca01d8fb46a0b8770d48103111d7fe0f0.jar" />
+        sha1="36e5996abe8655a6471b82af5ac1cd6786aecf85">
+        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.0.1-449300c42806c9e1dabd090b91cf4a89f83af256.jar" />
     </item>
     <item
-        jar="/Users/ronylangbord/Desktop/TrunchMediaLab-master 3/app/build/intermediates/exploded-aar/com.splitwise/tokenautocomplete/1.3.3/classes.jar"
+        jar="/Users/ronylangbord/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-b5850075e7b2fb70deccbde4b80420ccf51c6079.jar" />
+    </item>
+    <item
+        jar="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/exploded-aar/com.splitwise/tokenautocomplete/1.3.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="9fd816054b72716226d7022d37f89cc49988744d">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 3/app/build/intermediates/pre-dexed/debug/classes-31fb54251984f51520d92526c4fa8addecfb6f15.jar" />
+        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/classes-f710c378b0af1e2ef604080955d2174a57ac1141.jar" />
+    </item>
+    <item
+        jar="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-9e0896d01cbd33298ec1808a0a67f289412b412a.jar" />
     </item>
 
 </items>

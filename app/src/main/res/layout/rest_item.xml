@@ -9,14 +9,8 @@
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
         >
-    <FrameLayout android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@color/white"
-                    android:gravity="center_horizontal">
 
-            <TextView
+           <TextView
                     android:id="@+id/restName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -27,19 +21,16 @@
                     android:textStyle="bold"
                     android:visibility="gone"
                     android:layout_gravity="center_horizontal|top"/>
+
             <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:id="@+id/imageButton"
                     android:clickable="true"
                     android:src="@drawable/agadir"
                     android:background="#ff000000"
                     android:layout_margin="50dp"
                     />
-
-
-
-    </FrameLayout>
 
 
 </LinearLayout>
