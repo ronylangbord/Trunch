@@ -28,6 +28,16 @@
         android:layout_centerHorizontal="true"
         android:gravity="center|top" />
 
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/shuffle_button"
+        android:layout_below="@+id/meet_your_trunchers"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/shuffle_button"
+        />
+
 
 
 

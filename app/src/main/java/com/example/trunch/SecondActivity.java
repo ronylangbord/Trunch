@@ -1,5 +1,6 @@
 package com.example.trunch;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -18,7 +19,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import static com.example.trunch.R.id.white_bar;
 
 
 public class SecondActivity extends ActionBarActivity implements TokenCompleteTextView.TokenListener {
@@ -53,6 +53,7 @@ public class SecondActivity extends ActionBarActivity implements TokenCompleteTe
     ObjectMapper mMapper;
     InputMethodManager mInputManger;
     Typeface robotoFont;
+    ActionBar actionBar;
 
     //=========================================
     //				Activity Lifecycle
@@ -63,7 +64,11 @@ public class SecondActivity extends ActionBarActivity implements TokenCompleteTe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity_1);
 
-
+//        actionBar = getActionBar();
+//        BitmapDrawable background = new BitmapDrawable
+//                (BitmapFactory.decodeResource(getResources(), R.drawable.trunch_logo_small));
+//
+//        actionBar.setBackgroundDrawable(background);
 
         // Init Fields
         mSharedPreferences = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
@@ -160,7 +165,7 @@ public class SecondActivity extends ActionBarActivity implements TokenCompleteTe
                 mChooseRest.setShadowLayer(radius, xOffSet, yOffSet, shadowColor);
 
 
-                ImageView mWhiteBar = (ImageView) findViewById(R.id.white_bar);
+                ImageView mWhiteBar = (ImageView) findViewById(white_bar);
                 mChooseRest.setVisibility(View.VISIBLE);
                 mWhiteBar.setVisibility(View.VISIBLE);
                 final Restaurant rest = getItem(position);

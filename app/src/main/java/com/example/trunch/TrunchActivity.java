@@ -2,8 +2,9 @@ package com.example.trunch;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 /**
@@ -23,6 +24,7 @@ public class TrunchActivity extends ActionBarActivity {
     ImageView mMatchScreen;
     String restName;
     String trunchers;
+    Button shuffleButton;
 
 
     @Override
@@ -32,10 +34,17 @@ public class TrunchActivity extends ActionBarActivity {
 
 
         restName = getIntent().getStringExtra("restName");
-        Log.d("rony", "in trunch activity. restName:" + restName);
         trunchers = getIntent().getStringExtra("trunchers");
-        Log.d("rony", "in trunch activity. trunchers:" +  trunchers);
         showTrunchDialog(trunchers, restName);
+
+        shuffleButton = (Button) findViewById(R.id.shuffle_button);
+        shuffleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShuffleDialogClass shuffle = new ShuffleDialogClass(TrunchActivity.this);
+                shuffle.show();
+            }
+        });
 
     }
 
