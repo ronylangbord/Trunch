@@ -10,8 +10,8 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -64,7 +64,10 @@ public class SecondActivity extends ActionBarActivity implements TokenCompleteTe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity_1);
 
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+        toolbar.setLogo(R.drawable.trunch_logo_small);
         // Init Fields
         mSharedPreferences = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         mTagsCompletionView = (TagsCompletionView) findViewById(R.id.searchView);
@@ -82,11 +85,11 @@ public class SecondActivity extends ActionBarActivity implements TokenCompleteTe
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
-    }
-
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
 
 
 
@@ -178,7 +181,7 @@ public class SecondActivity extends ActionBarActivity implements TokenCompleteTe
             public void onItemClick(final AdapterView<?> parent, final View view, int position, long id) {
 
                 TextView restTitle = (TextView) view.findViewById(R.id.restName);
-                TextView dialogText = (TextView) findViewById(R.id.txt_dia);
+               // TextView dialogText = (TextView) findViewById(R.id.txt_dia);
 //                dialogText.setTypeface(robotoFont);
                 final String restName = (String) restTitle.getText();
                 CustomDialogClass cdd = new CustomDialogClass(SecondActivity.this, restName);

@@ -2,7 +2,6 @@ package com.example.trunch;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
@@ -52,11 +51,12 @@ public class TrunchActivity extends ActionBarActivity {
         trunchDialog.show();
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
-    }
-
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//}
+//
 }
-

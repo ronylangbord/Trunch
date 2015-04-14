@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by ronylangbord on 4/10/15.
@@ -15,6 +16,7 @@ public class CustomDialogClass extends Dialog implements View.OnClickListener {
     public Activity c;
     public Button yes, no;
     public String restName;
+    TextView alertTextView;
 
     public CustomDialogClass(Activity a, String restName) {
         super(a);
@@ -28,6 +30,10 @@ public class CustomDialogClass extends Dialog implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.first_alert);
+
+        alertTextView = (TextView) findViewById(R.id.text_first_alert);
+        alertTextView.setText("Are you sure you want to eat at " + restName + " ?");
+
 
         yes = (Button) findViewById(R.id.btn_yes);
         no = (Button) findViewById(R.id.btn_no);
@@ -55,7 +61,7 @@ public class CustomDialogClass extends Dialog implements View.OnClickListener {
     }
 
     private void showGreatChoice(String restName) {
-        GreatChoiceDialog greatChoiceDialog = new GreatChoiceDialog(this.c);
+        GreatChoiceDialog greatChoiceDialog = new GreatChoiceDialog(this.c, restName);
         greatChoiceDialog.show();
     }
 

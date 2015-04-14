@@ -37,7 +37,7 @@ public class TrunchReminderService extends BroadcastReceiver {
         // The PendingIntent to launch our activity if the user selects this
         // notification
         mNotificationPendingIntent = PendingIntent.getActivity(context, 0,
-                new Intent(context, MainActivity.class), PendingIntent.FLAG_CANCEL_CURRENT);
+                new Intent(context, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
         // Send the notification.
 
         mBuilder.setContentIntent(mNotificationPendingIntent);

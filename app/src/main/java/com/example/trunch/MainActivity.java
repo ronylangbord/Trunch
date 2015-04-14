@@ -10,6 +10,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -39,8 +40,17 @@ public class MainActivity extends ActionBarActivity {
     //				Activity Lifecycle
     //=========================================
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+        toolbar.setNavigationIcon(R.drawable.silver_medal);
+        toolbar.setLogo(R.drawable.trunch_logo_small);
 
 
         // Init Fields

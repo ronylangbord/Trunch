@@ -8,7 +8,7 @@
         android:id="@+id/searchView"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="70dp"
         android:layout_centerHorizontal="true"
         android:background="@color/white"
         android:hint="@string/food_prompt"
@@ -19,6 +19,14 @@
         android:inputType="text|textNoSuggestions|textMultiLine"
         android:focusableInTouchMode="true"
         />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.Toolbar>
 
         <ImageView
             android:id="@+id/white_bar"
