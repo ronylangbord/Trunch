@@ -5,7 +5,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 /**
  * Created by or on 4/3/2015.
@@ -21,7 +20,7 @@ public class TrunchActivity extends ActionBarActivity {
     //=========================================
     //				Fields
     //=========================================
-    ImageView mMatchScreen;
+
     String restName;
     String trunchers;
     Button shuffleButton;

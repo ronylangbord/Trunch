@@ -3,17 +3,30 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1"
     android:background="@drawable/background"  >
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logo_2"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="1in"></ImageView>
+
 
 
     <Button
         android:id="@+id/linkedinButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/linkedin_signin_hd"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:background="@drawable/linkedin_final"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="240dp"></Button>
+        android:layout_marginLeft="85dp"
+        android:layout_marginBottom="70dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="4dp"></Button>
 
 
 </RelativeLayout>

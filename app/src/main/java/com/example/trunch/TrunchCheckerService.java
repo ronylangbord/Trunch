@@ -80,6 +80,7 @@ public class TrunchCheckerService extends BroadcastReceiver {
         Intent intentForTrunch = new Intent(context, TrunchActivity.class);
         intentForTrunch.putExtra("trunchers", mTrunchers);
         intentForTrunch.putExtra("restName", mRestName);
+
         intentForTrunch.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         return intentForTrunch;
     }

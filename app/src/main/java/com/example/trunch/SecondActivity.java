@@ -64,11 +64,6 @@ public class SecondActivity extends ActionBarActivity implements TokenCompleteTe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity_1);
 
-//        actionBar = getActionBar();
-//        BitmapDrawable background = new BitmapDrawable
-//                (BitmapFactory.decodeResource(getResources(), R.drawable.trunch_logo_small));
-//
-//        actionBar.setBackgroundDrawable(background);
 
         // Init Fields
         mSharedPreferences = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
@@ -206,7 +201,8 @@ public class SecondActivity extends ActionBarActivity implements TokenCompleteTe
                     public View getView(int position, View convertView, ViewGroup parent) {
                         if (convertView == null) {
 
-                            LayoutInflater l = (LayoutInflater)getContext().getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                            LayoutInflater l =
+                                    (LayoutInflater)getContext().getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
                             convertView = l.inflate(R.layout.food_tag_layout, parent, false);
                         }
 
