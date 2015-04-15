@@ -48,14 +48,14 @@ public class SharedPrefUtils {
     }
 
 
-    public static void saveUserID(SharedPreferences mSharedPreferences, long userID) {
+    public static void saveUserID(SharedPreferences mSharedPreferences, String userID) {
         SharedPreferences.Editor edit = mSharedPreferences.edit();
-        edit.putLong(SHARED_PREF_USER_ID, userID);
+        edit.putString(SHARED_PREF_USER_ID, userID);
         edit.commit();
     }
 
     public static boolean isLoggedIn (SharedPreferences mSharedPreferences) {
-        return mSharedPreferences.getLong(SHARED_PREF_USER_ID, -1) >= 0;
+        return mSharedPreferences.getString(SHARED_PREF_USER_ID, null) != null;
     }
 
     public static long lastTimeDownloaded (SharedPreferences mSharedPreferences) {

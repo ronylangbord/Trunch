@@ -2,67 +2,81 @@
 <items version="2" >
 
     <item
-        jar="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/classes-8cb81c0b56b0582f8c553fdbdf683ef84af735f1.jar" />
-    </item>
-    <item
-        jar="/Users/ronylangbord/Desktop/School/AndroidDevelopment/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-88088c993d53f330a72830eea1fa5cde05a4ffdc.jar" />
-    </item>
-    <item
-        jar="/Users/ronylangbord/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.0.1/1d160beb3f8924d5b98d03d94a149021146f71cc/jackson-databind-2.0.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1d160beb3f8924d5b98d03d94a149021146f71cc">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/jackson-databind-2.0.1-0a028205c720bf749c04962dbcdb2eee5f6abba7.jar" />
-    </item>
-    <item
-        jar="/Users/ronylangbord/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.0.1/481d14ec21e034ed45217c4854dbbf15940ce108/jackson-core-2.0.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="481d14ec21e034ed45217c4854dbbf15940ce108">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/jackson-core-2.0.1-b1d363fc77e729aba72f45d9c77be3c288e7a795.jar" />
-    </item>
-    <item
-        jar="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/classes-f140b73d45bba07400d82e2588593f74cb1bcc25.jar" />
-    </item>
-    <item
-        jar="/Users/ronylangbord/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.0.1/36e5996abe8655a6471b82af5ac1cd6786aecf85/jackson-annotations-2.0.1.jar"
+        jar="C:\Users\or\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.0.1\36e5996abe8655a6471b82af5ac1cd6786aecf85\jackson-annotations-2.0.1.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="36e5996abe8655a6471b82af5ac1cd6786aecf85">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.0.1-449300c42806c9e1dabd090b91cf4a89f83af256.jar" />
+        <dex dex="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.0.1-806a50fe636a2318f76597182f381d9ad6ea0e0d.jar" />
     </item>
     <item
-        jar="/Users/ronylangbord/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jar="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\exploded-aar\Trunch\linkedin-sdk\unspecified\libs\volley.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-b5850075e7b2fb70deccbde4b80420ccf51c6079.jar" />
+        sha1="c4c0b8d237757dce06738a695d8b5c09d0ea2574">
+        <dex dex="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\pre-dexed\debug\volley-697712dcb827b5dfe4fffb01123870e564bbe1bf.jar" />
     </item>
     <item
-        jar="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/exploded-aar/com.splitwise/tokenautocomplete/1.3.3/classes.jar"
+        jar="C:\Users\or\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.0.1\481d14ec21e034ed45217c4854dbbf15940ce108\jackson-core-2.0.1.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="9fd816054b72716226d7022d37f89cc49988744d">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/classes-f710c378b0af1e2ef604080955d2174a57ac1141.jar" />
+        sha1="481d14ec21e034ed45217c4854dbbf15940ce108">
+        <dex dex="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\pre-dexed\debug\jackson-core-2.0.1-f72ad4f895ba5d427f91a5138feda200c12cfb10.jar" />
     </item>
     <item
-        jar="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jar="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\pre-dexed\debug\classes-09e8a34dd635388250cadaeacaaad1fe25c7b986.jar" />
+    </item>
+    <item
+        jar="C:\Users\or\dev\adt-bundle-windows-x86_64-20140702\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-8d7ef2ad785d78e244062078be787848b6499c6f.jar" />
+    </item>
+    <item
+        jar="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\pre-dexed\debug\classes-60f8489e81375dfb554fb15d0ef5fbfd6c17da0c.jar" />
+    </item>
+    <item
+        jar="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\exploded-aar\Trunch\linkedin-sdk\unspecified\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5cb1c109ccbf7332bdddf1695c3fcc986109a573">
+        <dex dex="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\pre-dexed\debug\classes-a4488fbe05ee97a7570c553525ba239cdc7fbba7.jar" />
+    </item>
+    <item
+        jar="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/Users/ronylangbord/Desktop/TrunchMediaLab-master 4/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-9e0896d01cbd33298ec1808a0a67f289412b412a.jar" />
+        <dex dex="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-131e015ee8850967a4ade9fe7b99ef58991e2e39.jar" />
+    </item>
+    <item
+        jar="C:\Users\or\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.0.1\1d160beb3f8924d5b98d03d94a149021146f71cc\jackson-databind-2.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1d160beb3f8924d5b98d03d94a149021146f71cc">
+        <dex dex="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\pre-dexed\debug\jackson-databind-2.0.1-21a51edcdfc194ade7ec94c9ab5fc0ec240840e4.jar" />
+    </item>
+    <item
+        jar="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\exploded-aar\com.splitwise\tokenautocomplete\1.3.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9fd816054b72716226d7022d37f89cc49988744d">
+        <dex dex="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\pre-dexed\debug\classes-9180685020e1a82fda6780dc7930468ee7cf0583.jar" />
+    </item>
+    <item
+        jar="C:\Users\or\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\or\AndroidStudioProjects\MediaLabProject\Trunch\app\build\intermediates\pre-dexed\debug\picasso-2.5.2-f686b2610b457cc3e5a3d6433ef9bdd0797d7b3f.jar" />
     </item>
 
 </items>

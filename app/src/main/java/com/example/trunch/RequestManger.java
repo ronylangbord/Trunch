@@ -4,15 +4,21 @@ import android.util.Log;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.DefaultedHttpParams;
+import org.apache.http.params.HttpParams;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 /**
  * Created by or on 4/3/2015.
@@ -52,10 +58,16 @@ public class RequestManger {
         return result;
     }
 
-    public static String requestPost(String url) {
+    public static String requestPost(String url , ArrayList<NameValuePair> postParameters) {
         HttpClient httpclient = new DefaultHttpClient();
         // Prepare a request object
         HttpPost httpPost = new HttpPost(url);
+        //make params
+        try {
+            httpPost.setEntity(new UrlEncodedFormEntity(postParameters));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         // Execute the request
         HttpResponse response;
         String result = "";

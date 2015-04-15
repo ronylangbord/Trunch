@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/background"  >
+    android:background="@drawable/background"
+    android:clickable="true">
 
 
     <ImageView
@@ -12,6 +13,15 @@
         android:background="@drawable/logo_2"
         android:layout_marginLeft="75dp"
         android:layout_marginTop="1in"></ImageView>
+
+    <View
+        android:id="@+id/splash_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@drawable/background"/>
+
+
 
 
 
@@ -27,6 +37,8 @@
         android:paddingRight="3dp"
         android:paddingTop="2dp"
         android:paddingBottom="4dp"></Button>
+
+
 
 
 </RelativeLayout>

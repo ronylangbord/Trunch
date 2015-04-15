@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -14,8 +16,17 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
+
+import java.io.IOException;
+
+
+import static com.example.trunch.R.id.white_bar;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -36,6 +47,8 @@ public class MainActivity extends ActionBarActivity {
     TextView mTitleView;
     SearchView mTempView;
     Typeface robotoFont;
+    User mUser;
+    Toolbar mToolbar;
     //=========================================
     //				Activity Lifecycle
     //=========================================
@@ -45,12 +58,12 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
 
-        toolbar.setNavigationIcon(R.drawable.silver_medal);
-        toolbar.setLogo(R.drawable.trunch_logo_small);
+        mToolbar.setNavigationIcon(R.drawable.silver_medal);
+        mToolbar.setLogo(R.drawable.trunch_logo_small);
 
 
         // Init Fields
@@ -80,13 +93,16 @@ public class MainActivity extends ActionBarActivity {
             restOfTheActivity();
         }
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return super.onCreateOptionsMenu(menu);
     }
 
     private void restOfTheActivity() {
+        // put user image
+        /*loadUserImage();
+        ImageView test = (ImageView) findViewById(R.id.toolbar);
+        Picasso.with(this).load(mUser.getPictureUrl()).into(test);*/
         // check difference between current time and last time of download.
         long lastTimeDownloaded = SharedPrefUtils.lastTimeDownloaded(mSharedPreferences);
         long timeDifference = System.currentTimeMillis() - lastTimeDownloaded;
@@ -104,9 +120,26 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
+
+
     //=========================================
     //				Private Methods
     //=========================================
+
+    /*private Target loadUserImage() {
+        Target target = new Target() {
+            @Override
+            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                ImageView imageView = new ImageView(getApplicationContext());
+                imageView.setImageBitmap(bitmap);
+                Drawable image = imageView.getDrawable();
+            }
+
+            @Override
+            public void onBitmapFailed() {
+            }
+        }
+    }*/
 
     private void initTempView() {
         mTempView.setOnClickListener(new View.OnClickListener() {
@@ -139,8 +172,8 @@ public class MainActivity extends ActionBarActivity {
 
         if (requestCode == 1) {
             if(resultCode == RESULT_OK){
-                String result=data.getStringExtra("result");
-                Log.d("ori", result);
+                // get user
+                mUser = (User) data.getParcelableExtra("user");
                 restOfTheActivity();
             }
             if (resultCode == RESULT_CANCELED) {
