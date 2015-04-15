@@ -54,6 +54,10 @@ public class SharedPrefUtils {
         edit.commit();
     }
 
+    public static String getUserId(SharedPreferences mSharedPreferences) {
+        return mSharedPreferences.getString(SHARED_PREF_USER_ID, null);
+    }
+
     public static boolean isLoggedIn (SharedPreferences mSharedPreferences) {
         return mSharedPreferences.getString(SHARED_PREF_USER_ID, null) != null;
     }

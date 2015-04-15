@@ -15,7 +15,7 @@
         android:layout_marginTop="1in"></ImageView>
 
     <View
-        android:id="@+id/splash_screen"
+        android:id="@+id/splash_screen_linkedin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"

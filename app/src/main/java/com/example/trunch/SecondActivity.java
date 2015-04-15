@@ -6,8 +6,10 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +25,7 @@ import android.widget.TextView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 import com.tokenautocomplete.FilteredArrayAdapter;
 import com.tokenautocomplete.TokenCompleteTextView;
 
@@ -55,7 +58,8 @@ public class SecondActivity extends ActionBarActivity implements TokenCompleteTe
     InputMethodManager mInputManger;
     Typeface robotoFont;
     ActionBar actionBar;
-
+    Toolbar mToolbar;
+    User mUser;
     //=========================================
     //				Activity Lifecycle
     //=========================================
@@ -65,14 +69,16 @@ public class SecondActivity extends ActionBarActivity implements TokenCompleteTe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity_1);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        toolbar.setLogo(R.drawable.trunch_logo_small);
+        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        mToolbar.setNavigationIcon(R.drawable.silver_medal);
+        mToolbar.setLogo(R.drawable.trunch_logo_small);
+        mUser = (User) getIntent().getParcelableExtra("user");
+        loadUserImage();
         // Init Fields
         mSharedPreferences = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         mTagsCompletionView = (TagsCompletionView) findViewById(R.id.searchView);
-        // mMainContainer = (LinearLayout) findViewById(R.id.mainContainer);
         mRestContainer = (HorizontialListView) findViewById(R.id.restContainer);
         mMapper = new ObjectMapper();
         mInputManger = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -97,6 +103,29 @@ public class SecondActivity extends ActionBarActivity implements TokenCompleteTe
     //=========================================
     //				Private Methods
     //=========================================
+
+    private void loadUserImage() {
+        Target target = new Target() {
+            @Override
+            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                ImageView imageView = new ImageView(getApplicationContext());
+                imageView.setImageBitmap(bitmap);
+                Drawable image = imageView.getDrawable();
+                mToolbar.setNavigationIcon(image);
+            }
+
+            @Override
+            public void onBitmapFailed(Drawable errorDrawable) {
+
+            }
+
+            @Override
+            public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+            }
+        };
+        Picasso.with(this).load(mUser.getPictureUrl()).into(target);
+    }
 
 
     private void parseAndInit(String jsonRest, String jsonTags) {

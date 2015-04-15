@@ -19,11 +19,18 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.linkedin.platform.LISessionManager;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 import static com.example.trunch.R.id.white_bar;
@@ -38,6 +45,7 @@ public class MainActivity extends ActionBarActivity {
     private static final String SHARED_PREF_NAME = "com.package.SHARED_PREF_NAME";
     private static final String urlGetTags = "http://www.mocky.io/v2/54ba8366e7c226ad0b446eff";
     private static final String urlGetRest = "http://www.mocky.io/v2/552421c1cb84087608d88880";
+    private static final String urlGetUser = "http://www.mocky.io/v2/552e883749f6abea07a3586d";
 
     //=========================================
     //				Fields
@@ -49,6 +57,7 @@ public class MainActivity extends ActionBarActivity {
     Typeface robotoFont;
     User mUser;
     Toolbar mToolbar;
+    ObjectMapper mMapper;
     //=========================================
     //				Activity Lifecycle
     //=========================================
@@ -60,8 +69,6 @@ public class MainActivity extends ActionBarActivity {
 
         mToolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-
-
         mToolbar.setNavigationIcon(R.drawable.silver_medal);
         mToolbar.setLogo(R.drawable.trunch_logo_small);
 
@@ -71,6 +78,7 @@ public class MainActivity extends ActionBarActivity {
         mSplashScreenView = findViewById(R.id.splash_screen);
         mTitleView = (TextView) findViewById(R.id.titleView);
         mTempView = (SearchView) findViewById(R.id.tempView);
+        mMapper = new ObjectMapper();
         robotoFont  = Typeface.createFromAsset(getAssets(), "Roboto-Regular.ttf");
 
         // set daily reminder
@@ -89,21 +97,20 @@ public class MainActivity extends ActionBarActivity {
             // start linkedinConnectActivity
             linkedinConnect();
         } else {
-
-            restOfTheActivity();
+            // get user detials from server
+            new GetUserAsync().execute(urlGetUser);
         }
     }
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return super.onCreateOptionsMenu(menu);
     }
 
     private void restOfTheActivity() {
-        // put user image
-        /*loadUserImage();
-        ImageView test = (ImageView) findViewById(R.id.toolbar);
-        Picasso.with(this).load(mUser.getPictureUrl()).into(test);*/
-        // check difference between current time and last time of download.
+        loadUserImage();
         long lastTimeDownloaded = SharedPrefUtils.lastTimeDownloaded(mSharedPreferences);
         long timeDifference = System.currentTimeMillis() - lastTimeDownloaded;
         // Compare to MIN_TIME_BETWEEN_JSON_DOWNLOAD and act accordingly.
@@ -126,26 +133,37 @@ public class MainActivity extends ActionBarActivity {
     //				Private Methods
     //=========================================
 
-    /*private Target loadUserImage() {
+
+    private void loadUserImage() {
         Target target = new Target() {
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                 ImageView imageView = new ImageView(getApplicationContext());
                 imageView.setImageBitmap(bitmap);
                 Drawable image = imageView.getDrawable();
+                mToolbar.setNavigationIcon(image);
             }
 
             @Override
-            public void onBitmapFailed() {
+            public void onBitmapFailed(Drawable errorDrawable) {
+
             }
-        }
-    }*/
+
+            @Override
+            public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+            }
+        };
+
+        Picasso.with(this).load(mUser.getPictureUrl()).into(target);
+    }
 
     private void initTempView() {
         mTempView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
+                intent.putExtra("user", mUser);
                 startActivity(intent);
             }
         });
@@ -228,6 +246,40 @@ public class MainActivity extends ActionBarActivity {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    //=========================================
+    //		GetUserAsync AsyncTask Class
+    //=========================================
+
+    private class GetUserAsync extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            // make params
+            ArrayList<NameValuePair> GetParameters = new ArrayList<NameValuePair>();
+            GetParameters.add(new BasicNameValuePair("android_id",
+                    SharedPrefUtils.getUserId(mSharedPreferences)));
+            // sign user to Data-base
+            return RequestManger.requestPost(params[0],GetParameters);
+            //return RequestManger.requestGet(params[0]);
+
+        }
+
+        @Override
+        protected void onPostExecute(String json) {
+            if (json != null) {
+                // make user
+                try {
+                    mUser = mMapper.readValue(json, User.class);
+                } catch (IOException e) {
+                    new GetUserAsync().execute(urlGetUser);
+                }
+                restOfTheActivity();
+
+            } else {
+                new GetUserAsync().execute(urlGetUser);
+            }
+        }
     }
 
 

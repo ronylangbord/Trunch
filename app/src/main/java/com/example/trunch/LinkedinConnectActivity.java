@@ -31,6 +31,9 @@ import com.linkedin.platform.listeners.AuthListener;
 import com.linkedin.platform.utils.Scope;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.security.MessageDigest;
@@ -53,6 +56,7 @@ public class LinkedinConnectActivity extends Activity{
     private static final String linkedinHost = "api.linkedin.com";
     private static final String topCardUrl = "https://" + linkedinHost
             + "/v1/people/~:(first-name," + "last-name,headline,picture-url)?format=json";
+    private static final String USER_CONNECT_URL = "http://rony.milab.idc.ac.il/user_connect.php";
 
     //=========================================
     //				Fields
@@ -60,6 +64,7 @@ public class LinkedinConnectActivity extends Activity{
     SharedPreferences mSharedPreferences;
     ObjectMapper mMapper;
     User mUser;
+    View mSplashScreen;
 
 
     //=========================================
@@ -78,6 +83,7 @@ public class LinkedinConnectActivity extends Activity{
         // Init Fields
         mSharedPreferences = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         mMapper = new ObjectMapper();
+        mSplashScreen = findViewById(R.id.splash_screen_linkedin);
 
         //Initialize session
         Button liLoginButton = (Button) findViewById(R.id.linkedinButton);
@@ -87,7 +93,6 @@ public class LinkedinConnectActivity extends Activity{
                 LISessionManager.getInstance(getApplicationContext()).init(thisActivity, buildScope(), new AuthListener() {
                     @Override
                     public void onAuthSuccess() {
-                       findViewById(R.id.splash_screen).setVisibility(View.VISIBLE);
                        getUserDetailsFromLinkedin();
                     }
                     @Override
@@ -98,21 +103,6 @@ public class LinkedinConnectActivity extends Activity{
                 }, true);
             }
         });
-
-
-
-
-
-
-            /*@Override
-            public void onClick(View v) {
-                // need to put linkdin logic here
-
-
-
-
-            }
-        });*/
     }
 
     //=========================================
@@ -128,25 +118,37 @@ public class LinkedinConnectActivity extends Activity{
 
 
     private void saveUserAndReturnToMain(String userDetailsJson) {
+        // save userId sharePrefs
+        String androidKey = getAndroidKey();
+        SharedPrefUtils.saveUserID(mSharedPreferences,androidKey);
         // make user
         try {
             Map map = (Map) mMapper.readValue(userDetailsJson, Object.class);
-            String userStringData = (String) map.get("responseData");
+            String userStringData = addAndroidKeyToData((String) map.get("responseData"), androidKey);
             mUser = mMapper.readValue(userStringData ,User.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        // save userId sharePrefs
-        SharedPrefUtils.saveUserID(mSharedPreferences,getAndroidKey());
-        // return to MainActivity
-        returnToMainActivity();
 
         // save user to server and return to MainActivity
-        //new SaveUserAsync().execute("http://www.mocky.io/v2/551f2c7ede0201b30f690e3c");
+        new SaveUserAsync().execute(USER_CONNECT_URL);
+    }
+
+    private String addAndroidKeyToData(String responseData, String androidKey) {
+        String allData = "";
+        try {
+            JSONObject jsonObject = new JSONObject(responseData);
+            jsonObject.put("android_id", androidKey);
+            allData = jsonObject.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return allData;
     }
 
     private void getUserDetailsFromLinkedin() {
+        mSplashScreen.setVisibility(View.VISIBLE);
         APIHelper apiHelper = APIHelper.getInstance(getApplicationContext());
         apiHelper.getRequest(LinkedinConnectActivity.this, topCardUrl, new ApiListener() {
             @Override
@@ -156,6 +158,7 @@ public class LinkedinConnectActivity extends Activity{
 
             @Override
             public void onApiError(LIApiError error) {
+                mSplashScreen.setVisibility(View.GONE);
                 LISessionManager.getInstance(getApplicationContext()).clearSession();
                 Toast.makeText(getApplicationContext(), "failed: please try again..."
                         , Toast.LENGTH_LONG).show();
@@ -164,7 +167,13 @@ public class LinkedinConnectActivity extends Activity{
     }
 
     private ArrayList<NameValuePair> getUserPostParams() {
-        return null;
+        ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+        postParameters.add(new BasicNameValuePair("android_id",mUser.getAndroidId()));
+        postParameters.add(new BasicNameValuePair("firstName", mUser.getFirstName()));
+        postParameters.add(new BasicNameValuePair("lastName", mUser.getLastName()));
+        postParameters.add(new BasicNameValuePair("headline", mUser.getHeadline()));
+        postParameters.add(new BasicNameValuePair("pictureUrl", mUser.getPictureUrl()));
+        return postParameters;
     }
 
 
@@ -189,7 +198,7 @@ public class LinkedinConnectActivity extends Activity{
     private class SaveUserAsync extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... params) {
-            // Get json from linkedin
+            // sign user to Data-base
             return RequestManger.requestPost(params[0], getUserPostParams());
 
         }
@@ -198,13 +207,13 @@ public class LinkedinConnectActivity extends Activity{
         protected void onPostExecute(String json) {
             String userDetailsJson =  json;
             if (userDetailsJson != null) {
-                // save userId sharePrefs
-                SharedPrefUtils.saveUserID(mSharedPreferences,getAndroidKey());
                 // return to MainActivity
                 returnToMainActivity();
 
             } else {
+                SharedPrefUtils.saveUserID(mSharedPreferences, null);
                 LISessionManager.getInstance(getApplicationContext()).clearSession();
+                mSplashScreen.setVisibility(View.GONE);
                 Toast.makeText(getApplicationContext(), "failed: please try again..."
                         , Toast.LENGTH_LONG).show();
             }

@@ -12,6 +12,11 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v4.app.NotificationCompat;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
+
 /**
  * Created by or on 4/3/2015.
  */
@@ -21,6 +26,7 @@ public class TrunchCheckerService extends BroadcastReceiver {
     //				Constants
     //=========================================
     private static final String SHARED_PREF_NAME = "com.package.SHARED_PREF_NAME";
+    private static final String urlGetTrunch = "http://www.mocky.io/v2/552e975d49f6abfb09a3587b";
     int mNotificationId = 001;
 
     //=========================================
@@ -29,6 +35,7 @@ public class TrunchCheckerService extends BroadcastReceiver {
     SharedPreferences mSharedPreferences;
     String mRestName;
     String mTrunchers;
+    String mUserId;
     PendingIntent mNotificationPendingIntent;
     NotificationCompat.Builder mBuilder;
     NotificationManager mNotifyMgr;
@@ -36,10 +43,11 @@ public class TrunchCheckerService extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         mSharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        mUserId = SharedPrefUtils.getUserId(mSharedPreferences);
         boolean hasTrunch = SharedPrefUtils.hasTrunch(mSharedPreferences);
         mRestName = intent.getStringExtra("restName");
         if (!hasTrunch) {
-            new AsynkTrunchChecker().execute("http://www.mocky.io/v2/551f2c7ede0201b30f690e3c");
+            new AsynkTrunchChecker().execute(urlGetTrunch);
         } else {
             mTrunchers = SharedPrefUtils.getTrunchers(mSharedPreferences);
             cancelAlarm(SecondActivity.getSyncPendingIntent(context));
@@ -90,7 +98,10 @@ public class TrunchCheckerService extends BroadcastReceiver {
     private class AsynkTrunchChecker extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... params) {
-            return RequestManger.requestGet(params[0]);
+            ArrayList<NameValuePair> GetParameters = new ArrayList<NameValuePair>();
+            GetParameters.add(new BasicNameValuePair("android_id",mUserId));
+            GetParameters.add(new BasicNameValuePair("rest",mRestName));
+            return RequestManger.requestPost(params[0], GetParameters);
         }
 
         @Override
